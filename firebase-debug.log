@@ -1,0 +1,87 @@
+[debug] [2025-01-17T09:04:27.861Z] ----------------------------------------------------------------------
+[debug] [2025-01-17T09:04:27.868Z] Command:       /home/ibtidah/.nvm/versions/node/v22.9.0/bin/node /home/ibtidah/.nvm/versions/node/v22.9.0/bin/firebase login
+[debug] [2025-01-17T09:04:27.870Z] CLI Version:   13.29.1
+[debug] [2025-01-17T09:04:27.871Z] Platform:      linux
+[debug] [2025-01-17T09:04:27.871Z] Node Version:  v22.9.0
+[debug] [2025-01-17T09:04:27.872Z] Time:          Fri Jan 17 2025 14:04:27 GMT+0500 (Pakistan Standard Time)
+[debug] [2025-01-17T09:04:27.873Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-17T09:04:27.882Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2025-01-17T09:04:28.904Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-01-17T09:04:28.906Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=189526622&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-01-17T09:28:40.342Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2025-01-17T09:28:40.343Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2025-01-17T09:28:40.802Z] *** [apiv2] error from fetch(https://accounts.google.com/o/oauth2/token, {"headers":{},"method":"POST","body":{"_overheadLength":543,"_valueLength":208,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------211368464095653250149963","_events":{},"_eventsCount":1}}): FetchError: request to https://accounts.google.com/o/oauth2/token failed, reason: 
+[debug] [2025-01-17T09:28:40.803Z] Token Fetch Error: FirebaseError: Failed to make request to https://accounts.google.com/o/oauth2/token
+    at RetryOperation._fn (/home/ibtidah/.nvm/versions/node/v22.9.0/lib/node_modules/firebase-tools/lib/apiv2.js:261:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2025-01-17T09:28:40.823Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-01-17T09:28:40.824Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"01b9e0a8-4013-41a9-9d18-c3c219d9f68c"}
+[debug] [2025-01-17T09:28:42.140Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-01-17T09:28:42.140Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"CzGiRAdgE5qj-h5roevT3_jZ6vWsrOKtj3U46wA2cyQ"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    01B9E
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=KyPPkJMvOsn12SiyeItHn7EP3rxDa39IAFf-RFvsUgg&session=01b9e0a8-4013-41a9-9d18-c3c219d9f68c&attest=CzGiRAdgE5qj-h5roevT3_jZ6vWsrOKtj3U46wA2cyQ
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2025-01-17T09:28:59.930Z] ----------------------------------------------------------------------
+[debug] [2025-01-17T09:28:59.936Z] Command:       /home/ibtidah/.nvm/versions/node/v22.9.0/bin/node /home/ibtidah/.nvm/versions/node/v22.9.0/bin/firebase login
+[debug] [2025-01-17T09:28:59.937Z] CLI Version:   13.29.1
+[debug] [2025-01-17T09:28:59.938Z] Platform:      linux
+[debug] [2025-01-17T09:28:59.938Z] Node Version:  v22.9.0
+[debug] [2025-01-17T09:28:59.939Z] Time:          Fri Jan 17 2025 14:28:59 GMT+0500 (Pakistan Standard Time)
+[debug] [2025-01-17T09:28:59.940Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=1020490108&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-01-17T09:30:24.262Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2025-01-17T09:30:24.263Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2025-01-17T09:30:24.743Z] *** [apiv2] error from fetch(https://accounts.google.com/o/oauth2/token, {"headers":{},"method":"POST","body":{"_overheadLength":543,"_valueLength":208,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------890403035956541988345091","_events":{},"_eventsCount":1}}): FetchError: request to https://accounts.google.com/o/oauth2/token failed, reason: 
+[debug] [2025-01-17T09:30:24.744Z] Token Fetch Error: FirebaseError: Failed to make request to https://accounts.google.com/o/oauth2/token
+    at RetryOperation._fn (/home/ibtidah/.nvm/versions/node/v22.9.0/lib/node_modules/firebase-tools/lib/apiv2.js:261:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2025-01-17T09:30:24.765Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-01-17T09:30:24.766Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"91a00541-a815-47d7-b1d2-9870f4bb8449"}
+[debug] [2025-01-17T09:30:25.677Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-01-17T09:30:25.678Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"jC4mh6RRo1_nw9vXKnzK4dUGpP9JXTYt9oVS5UA2n3A"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    91A00
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=9rB7aK7-gsm9TbilZUzppTDFeJDTCvIbsUH20R2lSo4&session=91a00541-a815-47d7-b1d2-9870f4bb8449&attest=jC4mh6RRo1_nw9vXKnzK4dUGpP9JXTYt9oVS5UA2n3A
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
