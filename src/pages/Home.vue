@@ -54,53 +54,51 @@ export default {
       avatar: "https://randomuser.me/api/portraits/women/75.jpg",
       selectedCategory: null, 
       selectedItem: null,
+      filteredItems:null,
+      categories: null,
+      userID: null
     };
   },
-  computed: {
-    categories() {
-      const store = useTaskStore();
-      return store.getCategory;
-    },
-    filteredItems() {
-      const store = useTaskStore();
-      if (this.selectedCategory) {
-        return store.getItemsByCategoryWithoutMain(this.selectedCategory); 
-      }
-      return []; 
-    },
+  beforeUnmount(){
+    
   },
   mounted() {
-    // Set selectedCategory to 'To-Do' and select the first item
-    this.selectedCategory = 'To-Do';
-    const store = useTaskStore();
-    const items = store.getItemsByCategoryWithoutMain(this.selectedCategory);
-    
-    // Select the first item's ID if there are items in the category
-    if (items.length > 0) {
-      this.selectedItem = items[0].id;
-    }
+    this.userID = localStorage.getItem('userID')
+    console.log("mounted", this.userID)
+    this.filteredItem(this.userID)
+    this.Category(this.userID)
   },
   methods: {
     selectCategory(category) {
       this.selectedCategory = category;
-      this.selectedItem = null; 
+      this.selectedItem = null;
+      this.filteredItems = useTaskStore().getNotesByCategory(category)
+    },
+    async filteredItem(id) {
+      const response = await useTaskStore().getItems(id)
+      this.filteredItems = response
+    },
+    async Category(id) {
+      const response = await useTaskStore().getCategor(id)
+      this.categories = response
+
     },
     selectItem(itemId) {
       this.selectedItem = itemId;
     },
     async deleteItem(itemId) {
       const store = useTaskStore();
-      await store.deleteItem(itemId);  // Call the delete function in the store
+      await store.deleteItem(itemId);  
     },
     addNewItem() {
-      const store = useTaskStore();
-      const newItem = {
-        id: Date.now(), // Unique ID (could be replaced with a better mechanism)
+      const newItem = { 
         title: "New Item",
         category: this.selectedCategory,
-        main: "New content here",
+        note: "New content here",
+        userID:'/users/bzRsNcxwyp035qfQzO7A'
       };
-      store.addItem(newItem); // Call the addItem action from the store
+      console.log("home")
+      useTaskStore().addItem(newItem); // Call the addItem action from the store
     }
   }
 };

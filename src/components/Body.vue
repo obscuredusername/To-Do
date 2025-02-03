@@ -44,22 +44,25 @@ export default {
     };
   },
   async mounted() {
-    this.loadData(); // Initial data loading
+    console.log(this.id)
+    this.loadData(); 
   },
   methods: {
     async loadData() {
       try {
+        console.log("bofy")
         const store = useTaskStore();
-        const data = await store.getItems(this.id);
+        const data = await store.getItemsbyId(this.id);
 
         this.selectedData = data;
+        console.log(this.selectedData[0])
 
         if (
           Array.isArray(this.selectedData) &&
           this.selectedData[0] &&
-          this.selectedData[0].main
+          this.selectedData[0].note
         ) {
-          const mainContent = this.selectedData[0].main;
+          const mainContent = this.selectedData[0].note;
 
           // Ensure content is properly formatted
           if (typeof mainContent === "string") {
@@ -73,6 +76,7 @@ export default {
         } else {
           this.content = new Delta(); // Fallback to empty content
         }
+        console.log(this.content)
       } catch (error) {
         console.error("Error fetching data:", error);
         this.content = new Delta(); // Reset on error

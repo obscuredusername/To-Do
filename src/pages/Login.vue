@@ -28,7 +28,6 @@
             <v-card-text>Email</v-card-text>
             <v-text-field
               v-model="email"
-              :rules="[emailRules.required, emailRules.email]"
               density="compact"
               placeholder="Enter your Email"
               variant="outlined"
@@ -111,6 +110,7 @@
 </template>
 
 <script>
+import { useTaskStore } from '../store/index'
 export default {
   data() {
     return {
@@ -158,6 +158,7 @@ export default {
       genderOptions: ['Male', 'Female', 'Other'],
     };
   },
+
   methods: {
     toggle() {
       if (this.togswitch) {
@@ -174,9 +175,42 @@ export default {
         this.switchStatement = `Don't have an Account? Sign up`;
       }
     },
-    handleSubmit() {
-      // Handle form submission logic (e.g., route to another page or submit data)
-      this.$router.push('/home');
+   async handleSubmit() {
+      if(this.togswitch){
+        const data ={
+          email: this.email,
+          password: this.password
+        }
+        const response = await useTaskStore().loginUser(data)
+        if(typeof response === 'string'){
+          alert(response)
+        } 
+        else{
+          console.log(response)
+          localStorage.setItem("userID",response.id)
+          this.$router.push('/home');
+        }
+      }
+      else{
+        const data ={
+          email: this.email,
+          password: this.password,
+          age: parseInt(this.age),
+          gender: this.gender,
+          number: parseInt(this.phone),
+          picure: this.photo
+        }
+        try{
+          console.log(data)
+          const response = await useTaskStore().signupUser(data)
+          console.log(response)
+          this.$router.push('/home');
+        }
+        catch(error){
+          console.log(error)
+        }
+      }
+      
     },
   },
 };
